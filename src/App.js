@@ -1,13 +1,13 @@
 import Header from "./components/Header";
 function App() {
-const clickMe = ()=>{
-  console.log('Clicked')
+const clickMe = (name)=>{
+  console.log('Hello: '+name)
 }
 
   return (
   <div>
     <Header/>
-    <button onClick={clickMe}>Click me</button>
+    <button onClick={()=>clickMe('Triyono')}>Click me</button>
   </div>
   );
 }
