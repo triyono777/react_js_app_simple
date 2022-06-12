@@ -17,7 +17,7 @@ const deleteProduct = (productId)=>{
 
 useEffect(()=>{
   console.log('Use effect running');
-})
+},[])
   return (
   <div>
     <ProductList products={products} deleteProduct= {deleteProduct}/>
