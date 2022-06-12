@@ -1,6 +1,13 @@
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
+import About from "./components/About";
+import Contact from "./components/Contact";
 import {useState, useEffect} from "react"
+import { Route, BrowserRouter as Router , Routes} from "react-router-dom";
+// switch di ganti routes
+// https://stackoverflow.com/questions/63124161/attempted-import-error-switch-is-not-exported-from-react-router-dom
+
+
 function App() {
 const [products,  setProducts] = useState([
   {id:1,title:"nama product 1",price:90000},
@@ -21,10 +28,17 @@ useEffect(()=>{
   console.log('Use effect running');
 },[name])
   return (
+
   <div>
-    <ProductList products={products} deleteProduct= {deleteProduct}/>
-    <button onClick={()=>setName("triyono udb")}> Change name</button>
-    <p>Name: {name}</p>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<ProductList products={products} deleteProduct= {deleteProduct}/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+
+      </Routes>
+    </Router>
+
 
   </div>
   );
