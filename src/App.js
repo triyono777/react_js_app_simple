@@ -10,6 +10,8 @@ const [products,  setProducts] = useState([
   {id:5,title:"nama product 5",price:15522},
 ])
 
+const [name, setName] = useState("Triyono");
+
 const deleteProduct = (productId)=>{
   const newPoducts = products.filter(product => product.id !== productId);
   setProducts(newPoducts);
@@ -17,10 +19,12 @@ const deleteProduct = (productId)=>{
 
 useEffect(()=>{
   console.log('Use effect running');
-},[])
+},[name])
   return (
   <div>
     <ProductList products={products} deleteProduct= {deleteProduct}/>
+    <button onClick={()=>setName("triyono udb")}> Change name</button>
+    <p>Name: {name}</p>
 
   </div>
   );
