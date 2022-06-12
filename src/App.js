@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
-import {useState} from "react"
+import {useState, useEffect} from "react"
 function App() {
 const [products,  setProducts] = useState([
   {id:1,title:"nama product 1",price:90000},
@@ -14,6 +14,10 @@ const deleteProduct = (productId)=>{
   const newPoducts = products.filter(product => product.id !== productId);
   setProducts(newPoducts);
 }
+
+useEffect(()=>{
+  console.log('Use effect running');
+})
   return (
   <div>
     <ProductList products={products} deleteProduct= {deleteProduct}/>
