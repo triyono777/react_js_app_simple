@@ -1,7 +1,8 @@
 import Header from "./components/Header";
+import ProductList from "./components/ProductList";
 import {useState} from "react"
 function App() {
-const [product,  setProduct] = useState([
+const [products,  setProduct] = useState([
   {id:1,title:"nama product 1",price:90000},
   {id:2,title:"nama product 2",price:99918},
   {id:3,title:"nama product 3",price:15525},
@@ -12,11 +13,8 @@ const [product,  setProduct] = useState([
 
   return (
   <div>
-<ul>
-  {product.map((product)=>(
-    <li key={product.id}> {product.title} - {product.price}</li>
-  ))}
-</ul>
+    <ProductList products={products}/>
+
   </div>
   );
 }
